@@ -83,7 +83,13 @@
         <li>2</li>
         <li>3</li>
     </ul>
+    <button onclick="location='www.baidu.com'">百度</button> <br />
+    <button onclick="history.back()">后退</button>
+    <button onclick="history.forward()">前进</button>
 
+    <button onclick="window.open('index2.html','newwindowname')">打开新窗口</button>
+    <!-- 如果没有指定窗口名，会不断的打开新窗口，如果指定了窗口名，再打开时，会使用原来打开的窗口-->
+    <button onclick="window.open('index2.html','newwindowname')">打开一个已经打开的窗口</button>
     <script type="text/javascript">
         var a="1234";
         function fun(date){
@@ -148,6 +154,23 @@ student1.name="ws";
 student1.age=22;
 console.log(student1);
 
+/*******载入新的文档***********************************/
+  //if(!XMLHttpRequest)
+  //      location.replace("index2.html");//使用指定页面代替当前页面，之前的页面不会出现在历史中
+  //  location.assign("index.html"); //assign()函数也可以载入新的文档，之前的文档会出现在历史中
+  //location.reload(); 重新载入当前文档
+
+  /*****浏览历史******************************/
+  console.log(window.history);
+  //window.history.back();  //后退
+  //window.history.forward(); //前进
+  //window.history.go(num); //后退或前进num个历史记录
+
+  /****浏览器和屏幕信息********************/
+  console.log(navigator.appName);
+  console.log(navigator.appVersion+" ----"+navigator.userAgent+" ---"+navigator.platform);
+  console.log(screen.width+":"+screen.height);
+  console.log(screen.availWidth+":"+screen.availHeight);
  </script>
 </body>
 </html>
