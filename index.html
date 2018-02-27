@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <link  rel="stylesheet" type="text/css" href="css/test.css"  /> -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+    <style type="text/css">
+        .wrap {
+            width:100px;
+            height:100px;
+            background:green;
+            
+        }
+
+        #test {
+            width:100px;
+            height:100px;
+            background:green;
+            margin:10px  0px;
+    
+        }
+
+        #test:hover{
+
+            background:red;
+        }
+
+        li {
+            float:left;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background: yellow;
+            margin:10px 10px;
+        }
+    
+        .clearfix{
+            zoom:1;
+        }
+        .clearfix:after{
+            clear:both;
+            content:"";
+            display:block;
+            overflow: hidden;
+            height:0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+    <p style="background:red;">this is a test</p>
+    <a href=""> test</a>
+    <a href="">test2</a>
+
+    <input type="input" />
+    <input type="button" value="click" />
+    <form action="index2.html" method="post">
+        登录：<input type="input" /><br />
+        密码：<input type="password" /> <br />
+        <input type="submit" value="提交" /> 
+        <input type="reset" value="重置" />
+    </form>
+
+    <div class="wrap">
+        this is a test
+    </div>
+
+    <div id="test">
+
+    </div>
+
+    <div class="wrap">
+
+    </div>
+
+    <p id="p_t">
+        <b>this is a test</b>
+    </p>
+
+    <ul style="list-style: none;"  class="clearfix">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script type="text/javascript">
+        var a="1234";
+        function fun(date){
+            console.log(date);
+        }
+        fun(a);
+
+        var p=document.createElement("p");
+        p.innerHTML="<b>this is a test</b>";
+        var div_id=document.getElementById("test");
+        div_id.appendChild(p);
+       
+        $("#test").on("click",function(){
+            window.location.href="index2.html";
+        })
+/******************************定时器**********************************/
+        setTimeout(print,1000);
+        var i=0;
+        function print(){
+            console.log(i++);
+        }
+
+        function invoke(f,start,interval,end){
+            if(!start) 
+                start=0;
+            if(arguments.length<=2){
+                setTimeout(f,start);
+            }
+            else{
+                setTimeout(repeat,start);
+                function repeat(){
+                    var h=setInterval(f,interval);
+                    if(end)
+                        setTimeout(function(){clearInterval(h);},end);
+                }
+            }
+        }
+        
+       // invoke(print,1000,2000,10000);
+
+/******************************浏览器定位和导航**********************************/
+        console.log(window.location);
+        console.log(typeof window.location);
+        console.log(window.location.href);
+        console.log(typeof window.location.href);
+        console.log(window.location.protocol);
+        console.log(window.location.host);
+        console.log(window.location.hostname);
+        console.log(window.location.pathname);
+        console.log(window.location.search);
+
+/***********************通过对对象进行||运算，判断对象是否存在，如果不存在置默认值**/
+ var a1=123;
+ var a2=a1||"123";
+ console.log(a2);
+ console.log(typeof a2);
+ console.log(typeof cccc); //undefined;
+ var cc=null;
+ console.log(typeof cc);
+var student1={}; //通过初始一个空对象，然后在添加属性
+student1.name="ws";
+student1.age=22;
+console.log(student1);
+
+ </script>
+</body>
+</html>
