@@ -86,10 +86,15 @@
     <button onclick="location='www.baidu.com'">百度</button> <br />
     <button onclick="history.back()">后退</button>
     <button onclick="history.forward()">前进</button>
-
-    <button onclick="window.open('index2.html','newwindowname')">打开新窗口</button>
+    <script type="text/javascript">
+     var w;
+    </script>
+    <button onclick="w=window.open('index2.html','newwindowname')">打开新窗口</button>
     <!-- 如果没有指定窗口名，会不断的打开新窗口，如果指定了窗口名，再打开时，会使用原来打开的窗口-->
+    <!-- 窗口名：_blank(空白窗口) _parent(父窗口) _top(顶层窗口) -->
     <button onclick="window.open('index2.html','newwindowname')">打开一个已经打开的窗口</button>
+    <button onclick="w.close()">关闭之前打开的窗口</button>
+    <button onclik="window.close()">关闭当前窗口</button>
     <script type="text/javascript">
         var a="1234";
         function fun(date){
@@ -171,6 +176,7 @@ console.log(student1);
   console.log(navigator.appVersion+" ----"+navigator.userAgent+" ---"+navigator.platform);
   console.log(screen.width+":"+screen.height);
   console.log(screen.availWidth+":"+screen.availHeight);
+  console.log(window.parent);
  </script>
 </body>
 </html>

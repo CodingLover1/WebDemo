@@ -7,6 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    Hello 
+    <div style="width:1000px; height:300px">
+        <iframe id="w1" src="index3.html" width="100%" height="100%">
+        </iframe>
+    </div>
+    <div style="width:1000px; height:300px">
+            <iframe id="w2" src="index3.html" width="100%" height="100%">
+            </iframe>
+        </div>
+    <script type="text/javascript">
+        if(window.opener!=null){
+            console.log("yes");
+            //console.log(window.opener.location.href);这个语句有问题，不能访问前一个窗口内的信息
+            console.log(window.parent);
+        }
+
+        //获取iframe中的window对象
+        var w1=document.getElementById("w1");
+        if(window==w1.parent){
+            console.log("window is w1's parent");
+        }else{
+            console.log("no");
+        }
+    </script>
+    
 </body>
 </html>
