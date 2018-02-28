@@ -408,6 +408,11 @@ console.log(student1);
 * $(target).bind("eventname",function);
 * $(target).unbind("eventname");
 
+#### 实时事件
+> 比如给所有的a元素调用bind()函数绑定了事件，如果又创建了新的a元素，则新的a元素不会拥有之前绑定的事件。通常在documet对象上调用delegate()函数
+
+* $(document).delegate("a","mouseover",linkHandler);
+
 ```
  $("<img/>",{src:"images/headPicture.jpg",
                 alt:"picture load fail",
@@ -507,7 +512,7 @@ $("a").clone().appendTo("#linkList");
 ```
 
 
-
+#### jQuery中的Ajax
 
 
 
