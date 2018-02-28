@@ -5,44 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+    <style type="text/css">
+     .ptest{
+         color:red;
+     }
+    </style>
 </head>
 <body>
     <h1>index3.html</h1>
+    <div>
+        <p id="p1" class="ptest">this is a <span>span</span>test<script>/*hello*/</script></p>
+        <ul>
+            <li>title1</li>
+            <li>title2</li>
+            <li>title3</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    /*******元素节点********/
+        console.log($("p")[0].parentNode);
+        console.log($("ul")[0].firstChild);
+        console.log($("ul")[0].firstChild.nodeValue);
+        console.log($("ul")[0].lastChild);
+
+    
+    /**** 元素内容 *************/
+    console.log($("p")[0].textContent);
+    console.log($("p")[0].innerText);
+    console.log($("p")[0].innerHTML);
+    console.log($("p")[0].nodeValue);
+
+    /*** 获取元素属性***********/
+    console.log($("#p1").attr("class"));
+    </script>
 </body>
 </html>
-<!--   jQuery 选取元素
-一．	获取元素对象
-$(“this”)
-$(“#test”)    获取id=test的元素对象
-$(“p”)       根据元素名获取对象
-$(“.test”)     根据class=test获取对象
-
-二．	语法格式
-1.$(selector).action()
-2.文档就绪函数
-$(document).ready(function(){
-});
-
-
-jQuery属性选择器
-$(“[href]”  选取所有带href属性的元素
-$(“[href=’#’]”)  选取所有href=#的元素
-$(“[href!=’#’]”)  选取所有href不等于#的元素
-$(“[href$=’.jpg’]”) 选取所有href以 .jpg结尾的元素
-
-
-3.为元素设置css样式
-$(“p”).css(“background-color”,”red”); 	
-
-4.jQuery事件
-$(selector).click(function)
-$(selector).dbclick(function)
-$(selector).focus(function)
-$(selector).mouseover(function)
-
-blur() 失去焦点
-keydown() 
-keypress()
-keyup()
-
-$(selector).keydown(function(event){//var key_code=event.KeyCode;}); -->
