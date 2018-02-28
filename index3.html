@@ -21,6 +21,9 @@
             <li>title2</li>
             <li>title3</li>
         </ul>
+        <div id="div1" style="width:100px;height:100px;">
+
+        </div>
     </div>
     <script type="text/javascript">
     /*******元素节点********/
@@ -35,9 +38,29 @@
     console.log($("p")[0].innerText);
     console.log($("p")[0].innerHTML);
     console.log($("p")[0].nodeValue);
+    console.log($("#p1").html());
+    console.log($("#p1").text());
 
     /*** 获取元素属性***********/
     console.log($("#p1").attr("class"));
+
+    /*******修改文档结构**************/
+    $("#p1").append("<b>append text</b>");
+    $("#p1").prepend("<p>previous text</p>");
+    $("#p1").after("<p>after text</p>")
+    $("#p1").before("<p> before text</p>");
+    $("p")[0].replaceWith("<p>replace text</p>");
+    $("<img/>",{src:"images/headPicture.jpg",
+                alt:"picture load fail",
+                width:"100%",
+                height:"100%",
+                click:function(){alert("yes");}
+    }).appendTo("#div1");
+
+    console.log($("ul").length);
+    console.log($("ul").empty());
+    console.log($("ul").remove());
+    
     </script>
 </body>
 </html>
