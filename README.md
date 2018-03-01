@@ -514,5 +514,21 @@ $("a").clone().appendTo("#linkList");
 
 #### jQuery中的Ajax
 
+$.ajax({
+    url: "#",
+    type: "GET",
+    data: null,  //这是发个服务器的数据
+    dataType:"script", //这是客户端期待收到的服务器端响应的数据类型
+    success:callback,
+    error:callback
+});
 
+dataType的值可以为一下几种：
+* "text" "html" "script" "json" "jsonp" "xml"
+
+ajax 另外的一些选项
+* contentType   指定请求的HTTP Content-Type 头
+* timeou 超时时间，单位是毫秒，如果设置了该选项，当请求没有在指定超时时间内完成就会取消请求同时触发error回调，回调中的状态码参数为“timeout”
+
+* $.each(data,function(key,val)) //遍历对象
 
