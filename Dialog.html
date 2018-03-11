@@ -5,64 +5,57 @@
     <title>Overlay Demo</title>
     <style>
         /*Your code here*/
+        #dialog{
+            width:400px;
+            height:300px;
+            background-color:#ffffff;
+            display:none;
+            z-index:1001;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-top:-150px;
+            margin-left:-200px;
+        }
+        #cover{
+            position:absolute;
+            left:0px;
+            top:0px;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,.7);
+            display: none;
+            z-index:1000;
+        }
+
     </style>
 </head>
 
 <body>
     <h1>Overlay Demo</h1>
-    <button id="runBtn" style="cursor: pointer;" onclick="(function(window) {
-        window.Overlay = Overlay;
-    }(window));">点击运行</button>
+    <button onclick="showDialog()">弹出框</button>
+
+    <div id="dialog">
+        <div id="title">
+            标题<a href="javascript:void(0)" onclick="heiddenDialog()" style="float:right;">X</a>
+        </div>
+        <div id="content">
+            内容
+        </div>
+    </div>
+    <div id="cover"></div>
 
     <script>
-        "use strict";
-        // Your code here
-        var overlay = new Overlay({
-            target: '#runBtn',
-            title: '自定义标题',
-            content: '自定义内容...'
-        }).setWidth(460).setHeight(270);
-
-
-        function Overlay(opts) {
-            this.opts = this.extend(this.defaults, opts);
-            this.init();
+        function showDialog(){
+            document.getElementById("cover").style.display="block";
+            document.getElementById("dialog").style.display="block";
         }
 
-        Overlay.prototype.defaults = {
-    target: null,
-    width: 500,
-    height: 300,
-    title: '',
-    content: ''
-};
-
-Overlay.prototype.extend = function(dest, src) {
-    for (var prop in src) {
-        if (src.hasOwnProperty(prop)) {
-            dest[prop] = src[prop];
+        function heiddenDialog(){
+            document.getElementById("cover").style.display="none";
+            document.getElementById("dialog").style.display="none";
         }
-    }
-
-    return dest;
-};
-
-Overlay.prototype.template = function() {
-    var title = "<div class='overlay-header'>" + this.opts.title + "<div id='overlay-close'>×</div></div>";
-    var content = "<div class='overlay-content'>" + this.opts.content + "</div>";
-    var footer = "<div class='overlay-footer'><button id='overlay-ok'>确定</button><button id='overlay-cancel'>取消</button></div>";
-
-    var _Overlay = document.createElement("div");
-    _Overlay.setAttribute("id", "Overlay");
-    _Overlay.innerHTML = "<div class='overlay-mask'></div><div class='overlay-inner'>" + title + content + footer + "</div>";
-
-    return _Overlay;
-};
-
-
     </script>
-
-
 </body>
 </html>
 

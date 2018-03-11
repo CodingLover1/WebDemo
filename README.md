@@ -593,3 +593,72 @@ ajax 另外的一些选项
 * position:absolute 绝对定位，如果以top left来移动元素，那么参考点为页面的左上角，如果以bottom left来移动元素，参考点为浏览器窗口的左下角，而不是整个body的左下角。使用绝对定位，元素就脱离了整个文档流。如果将某个祖先元素设置为relative,那么绝对定位会以祖先元素作为参考标准。
 
 * position:fixed 固定定位，以浏览器窗口作为参考对象，始终保持在屏幕的某个位置。
+
+#### js，css 实现弹出对话框并居中
+```html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Overlay Demo</title>
+    <style>
+        /*Your code here*/
+        #dialog{
+            width:400px;
+            height:300px;
+            background-color:#ffffff;
+            display:none;
+            z-index:1001;
+            /*实现居中*/
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-top:-150px;
+            margin-left:-200px;
+        }
+        #cover{
+            position:absolute;
+            left:0px;
+            top:0px;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,.7);
+            display: none;
+            z-index:1000;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Overlay Demo</h1>
+    <button onclick="showDialog()">弹出框</button>
+
+    <div id="dialog">
+        <div id="title">
+            标题<a href="javascript:void(0)" onclick="heiddenDialog()" style="float:right;">X</a>
+        </div>
+        <div id="content">
+            内容
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div id="cover"></div>
+
+    <script>
+        function showDialog(){
+            document.getElementById("cover").style.display="block";
+            document.getElementById("dialog").style.display="block";
+        }
+
+        function heiddenDialog(){
+            document.getElementById("cover").style.display="none";
+            document.getElementById("dialog").style.display="none";
+        }
+    </script>
+</body>
+</html>
+
+
+```
