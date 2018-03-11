@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Overlay Demo</title>
+    <style>
+        /*Your code here*/
+    </style>
+</head>
+
+<body>
+    <h1>Overlay Demo</h1>
+    <button id="runBtn" style="cursor: pointer;" onclick="(function(window) {
+        window.Overlay = Overlay;
+    }(window));">点击运行</button>
+
+    <script>
+        "use strict";
+        // Your code here
+        var overlay = new Overlay({
+            target: '#runBtn',
+            title: '自定义标题',
+            content: '自定义内容...'
+        }).setWidth(460).setHeight(270);
+
+
+        function Overlay(opts) {
+            this.opts = this.extend(this.defaults, opts);
+            this.init();
+        }
+
+        Overlay.prototype.defaults = {
+    target: null,
+    width: 500,
+    height: 300,
+    title: '',
+    content: ''
+};
+
+Overlay.prototype.extend = function(dest, src) {
+    for (var prop in src) {
+        if (src.hasOwnProperty(prop)) {
+            dest[prop] = src[prop];
+        }
+    }
+
+    return dest;
+};
+
+Overlay.prototype.template = function() {
+    var title = "<div class='overlay-header'>" + this.opts.title + "<div id='overlay-close'>×</div></div>";
+    var content = "<div class='overlay-content'>" + this.opts.content + "</div>";
+    var footer = "<div class='overlay-footer'><button id='overlay-ok'>确定</button><button id='overlay-cancel'>取消</button></div>";
+
+    var _Overlay = document.createElement("div");
+    _Overlay.setAttribute("id", "Overlay");
+    _Overlay.innerHTML = "<div class='overlay-mask'></div><div class='overlay-inner'>" + title + content + footer + "</div>";
+
+    return _Overlay;
+};
+
+
+    </script>
+
+
+</body>
+</html>
+

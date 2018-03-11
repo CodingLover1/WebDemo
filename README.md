@@ -532,3 +532,64 @@ ajax 另外的一些选项
 
 * $.each(data,function(key,val)) //遍历对象
 
+#### JavaScript定义类的方式
+```javascript
+
+//对象工厂方式，每次调用这个函数，都会创建一个showColor函数对象，不好
+        function Car(color){
+            var obj=new Object();
+            obj.color=color;
+            obj.showColor=function(){
+                document.write(obj.color);
+            }
+            return obj;
+        }
+
+
+        //构造函数,同工厂方式一样，每次都会创建showColor函数对象
+        function Car(color){
+            this.color=color;
+            this.showColor=function(){
+                document.write(this.color);
+            }
+        }
+
+        //原型方式,必须使用new,由于原型中存放的是对象的引用，所以当一个对象
+        //修改了某个对象属性后，其他的对象的该属性也会被修改。
+        function Car(color){
+            Car.prototype.color=color;
+            Car.prototype.arr=["red","blue"];
+            Car.prototype.showColor=function(){
+                document.write(this.color);
+            }
+        }
+
+        //联合方式，用构造函数来创建非函数属性，用原型来创建函数属性
+
+        function Car(color){
+            this.color=color;
+            this.arr=["red","blue"];
+            Car.prototype.showColor=function(){
+                alert(this.color);
+            }
+        }
+
+        //动态原型方式
+        function Car(color){
+            this.color=color;
+            this.arr=new Array("red","blue");
+            if(typeof Car.__initialized__ == "undefined"){
+                Car.prototype.showColor=function(){
+                    alert(this.color);
+                }
+                Car.__initialized__=true;
+            }
+        }
+```
+
+#### CSS位置
+* position:relative 相对定位，让元素相对于自己原来的位置，进行位置调整，
+
+* position:absolute 绝对定位，如果以top left来移动元素，那么参考点为页面的左上角，如果以bottom left来移动元素，参考点为浏览器窗口的左下角，而不是整个body的左下角。使用绝对定位，元素就脱离了整个文档流。如果将某个祖先元素设置为relative,那么绝对定位会以祖先元素作为参考标准。
+
+* position:fixed 固定定位，以浏览器窗口作为参考对象，始终保持在屏幕的某个位置。
