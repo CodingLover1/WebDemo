@@ -662,3 +662,32 @@ ajax 另外的一些选项
 
 
 ```
+
+#### CSS清除浮动
+> 浮动会导致元素脱离文档流，从而造成父元素的高度塌陷，影响页面布局。
+
+* 清楚浮动的常用方法，父容器使用伪类after和zoom
+
+```html
+.fl{
+    float:left;
+}
+
+.clearfix{
+    zoom: 1; //zoom属性是ie专有属性，可解决ie6，ie7浮动问题，
+}
+
+.clearfix:after{
+    display: block;
+    visbility: hidden;
+    clear: both;
+    height: 0;
+    content: "";
+}
+
+<div class="container clearfix">
+    <div class="box fl"></div>
+    <div class="box fl"></div>
+</div>
+
+```

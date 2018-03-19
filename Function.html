@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function Fruit(){
+           this.name='fruit';
+       }
+
+       Fruit.prototype.getName=function(){
+           return this.name;
+       }
+
+       function Apple(){
+           this.name='Apple';
+       }
+
+       Apple.prototype=new Fruit();
+
+       var apple=new Apple();
+       console.log(apple.getName());
+       console.dir(apple);
+    </script>
+</body>
+</html>

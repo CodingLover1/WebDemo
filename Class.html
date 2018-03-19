@@ -10,44 +10,44 @@
     
     <script>
 
-        //对象工厂方式，每次调用这个函数，都会创建一个showColor函数对象，不好
-        function Car(color){
-            var obj=new Object();
-            obj.color=color;
-            obj.showColor=function(){
-                document.write(obj.color);
-            }
-            return obj;
-        }
+        // //对象工厂方式，每次调用这个函数，都会创建一个showColor函数对象，不好
+        // function Car(color){
+        //     var obj=new Object();
+        //     obj.color=color;
+        //     obj.showColor=function(){
+        //         document.write(obj.color);
+        //     }
+        //     return obj;
+        // }
 
 
-        //构造函数,同工厂方式一样，每次都会创建showColor函数对象
-        function Car(color){
-            this.color=color;
-            this.showColor=function(){
-                document.write(this.color);
-            }
-        }
+        // //构造函数,同工厂方式一样，每次都会创建showColor函数对象
+        // function Car(color){
+        //     this.color=color;
+        //     this.showColor=function(){
+        //         document.write(this.color);
+        //     }
+        // }
 
-        //原型方式,必须使用new,由于原型中存放的是对象的引用，所以当一个对象
-        //修改了某个对象属性后，其他的对象的该属性也会被修改。
-        function Car(color){
-            Car.prototype.color=color;
-            Car.prototype.arr=["red","blue"];
-            Car.prototype.showColor=function(){
-                document.write(this.color);
-            }
-        }
+        // //原型方式,必须使用new,由于原型中存放的是对象的引用，所以当一个对象
+        // //修改了某个对象属性后，其他的对象的该属性也会被修改。
+        // function Car(color){
+        //     Car.prototype.color=color;
+        //     Car.prototype.arr=["red","blue"];
+        //     Car.prototype.showColor=function(){
+        //         document.write(this.color);
+        //     }
+        // }
 
-        //联合方式，用构造函数来创建非函数属性，用原型来创建函数属性
+        // //联合方式，用构造函数来创建非函数属性，用原型来创建函数属性
 
-        function Car(color){
-            this.color=color;
-            this.arr=["red","blue"];
-            Car.prototype.showColor=function(){
-                alert(this.color);
-            }
-        }
+        // function Car(color){
+        //     this.color=color;
+        //     this.arr=["red","blue"];
+        //     Car.prototype.showColor=function(){
+        //         alert(this.color);
+        //     }
+        // }
 
         //动态原型方式
         function Car(color){
@@ -67,6 +67,14 @@
         console.log(car1.arr);
         console.log(car2.arr);
        
+       function print(){
+           for(var i=0;i<arguments.length;i++){
+               console.log(arguments[i]);
+           }
+       }
+
+       print("hello","world");
+       print("ws");
     </script>
 </body>
 </html>

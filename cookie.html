@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    
+    function setCookie(c_name,value,expiredays)
+{
+var exdate=new Date()
+exdate.setDate(exdate.getDate()+expiredays)
+document.cookie=c_name+ "=" +escape(value)+
+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+}
+
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+
+setCookie("name","ws",70000);
+    console.log("name:"+getCookie(name));
+    </script>
+</body>
+</html>
+
+void quicksort(int a[],int low ,int heigh){
+    if(a==null|)
+    return ;
+
+    int p=partion(int a[] ,int low,int hi);
+    quicksort(a,low,p-1);
+    quicksort(a,p+1,heigh);
+
+}
+
+int partion(int a[],int low,int hi){
+    int x=a[0];
+    while(low<hi){
+        while(a[hi]>x && low<hi)
+            hi--;
+        a[low]=a[hi];
+        low++;
+        while(a[low}<x && low<hi)
+         low++;
+    }
+    a[low]=x;
+    return low;
+}

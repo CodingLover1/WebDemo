@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .div1{
+            width:400px;
+            height:300px;
+            border:1px solid black;
+            margin-top:2px;
+            float: left;
+        }
+
+        .div2{
+            width:400px;
+            height:300px;
+            border:1px solid black;
+            margin-top:2px;
+            float: right;
+        }
+
+        .clearfix{
+            zoom:1;
+        }
+
+        .clearfix:after{
+            display: block;
+            visibility: hidden;
+            height: 0;
+            clear:both;
+            content: "";
+        }
+
+        .container{
+            border:2px solid blue;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container clearfix">
+        <div class="div1">
+            
+        </div>
+        <div class="div2">
+
+        </div>
+    </div>
+</body>
+</html>

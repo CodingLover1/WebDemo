@@ -9,7 +9,6 @@
             width:400px;
             height:300px;
             background-color:#ffffff;
-            display:none;
             z-index:1001;
             position: absolute;
             left:50%;
@@ -17,14 +16,13 @@
             margin-top:-150px;
             margin-left:-200px;
         }
-        #cover{
+        .cover{
             position:absolute;
             left:0px;
             top:0px;
             width:100%;
             height:100%;
             background-color:rgba(0,0,0,.7);
-            display: none;
             z-index:1000;
         }
 
@@ -32,7 +30,7 @@
 </head>
 
 <body>
-    <h1>Overlay Demo</h1>
+    <!-- <h1>Overlay Demo</h1>
     <button onclick="showDialog()">弹出框</button>
 
     <div id="dialog">
@@ -43,18 +41,33 @@
             内容
         </div>
     </div>
-    <div id="cover"></div>
+    <div id="cover"></div> -->
 
     <script>
-        function showDialog(){
-            document.getElementById("cover").style.display="block";
-            document.getElementById("dialog").style.display="block";
+        function Dialog(){
+
+        }
+        Dialog.prototype.open=function(){
+            var dialog=document.createElement('div');
+            var cover=document.createElement('div');
+            dialog.id='dialog';
+            cover.className='cover';
+
+            document.body.appendChild(dialog);
+            document.body.appendChild(cover);
         }
 
-        function heiddenDialog(){
-            document.getElementById("cover").style.display="none";
-            document.getElementById("dialog").style.display="none";
-        }
+        var dialog=new Dialog();
+        dialog.open();
+        // function showDialog(){
+        //     document.getElementById("cover").style.display="block";
+        //     document.getElementById("dialog").style.display="block";
+        // }
+
+        // function heiddenDialog(){
+        //     document.getElementById("cover").style.display="none";
+        //     document.getElementById("dialog").style.display="none";
+        // }
     </script>
 </body>
 </html>
