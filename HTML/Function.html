@@ -25,6 +25,10 @@
        var apple=new Apple();
        console.log(apple.getName());
        console.dir(apple);
+
+       (function(data){
+           console.log("函数立即调用"+" "+data);
+       }("haha"))
     </script>
 </body>
 </html>
